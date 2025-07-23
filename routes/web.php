@@ -7,6 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::view('about', 'aboutus')->name('about');
+Route::view('students/resources', 'students.resources')->name('students.resources');
+Route::view('recruiters', 'recruiters')->name('recruiters');
+Route::view('contact', 'contact')->name('contact');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
