@@ -33,6 +33,11 @@
                     <p class="text-gray-600 text-sm">Placement Officer</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow text-center">
+                    <img src="{{ url('assets/image/team1.jpg') }}" alt="Team Member 1" class="h-20 w-20 rounded-full mx-auto mb-2">
+                    <p class="font-semibold text-blue-800">Dhruv</p>
+                    <p class="text-gray-600 text-sm">Placement Officer</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow text-center">
                     <img src="{{ url('assets/image/team2.jpg') }}" alt="Team Member 2" class="h-20 w-20 rounded-full mx-auto mb-2">
                     <p class="font-semibold text-blue-800">Ms. Sunita Sharma</p>
                     <p class="text-gray-600 text-sm">Training & Development Coordinator</p>

@@ -3,10 +3,15 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="bg-blue-900 text-white py-16">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to the Placement Cell</h1>
-            <p class="text-lg md:text-xl mb-8">Empowering  students with career opportunities, industry connections, and professional growth.</p>
+    <section class="relative overflow-hidden py-12 md:py-26 bg-blue-900">
+        <img 
+            src="{{ asset('assets/image/homeimg.jpg') }}" 
+            alt="Placement Cell Hero" 
+            class="absolute inset-0 w-full h-full object-cover object-center z-0"
+        >
+        <div class="relative z-20 max-w-3xl md:max-w-5xl mx-auto px-4 flex flex-col items-center text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">Welcome to the Placement Cell</h1>
+            <p class="text-base sm:text-lg md:text-xl mb-8 text-white">Empowering students with career opportunities, industry connections, and professional growth.</p>
             <a href="{{ route('students.resources') }}" class="inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-100 transition">Explore Student Resources</a>
         </div>
     </section>
