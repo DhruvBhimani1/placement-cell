@@ -7,30 +7,41 @@
     </div>
     <!-- Desktop Menu -->
     <div class="hidden lg:flex lg:items-center lg:space-x-8">
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="{{ route('home') }}">Home</a>
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="{{ route('about') }}">About Us</a>
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="#">Students</a>
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="#">Companies</a>
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="#">Jobs</a>
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="#">Resources</a>
-        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2" href="{{ route('contact') }}">Contact</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('home') }}">Home</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('about') }}">About Us</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('placements.summary') }}">Summary of Placements</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('placements.students') }}">
+            Placed Students</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('companies') }}">Companies</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('resources') }}">Resources</a>
+        <a class="text-black hover:text-gray-900 font-medium transition hover:underline hover:underline-offset-8 hover:decoration-2"
+            href="{{ route('contact') }}">Contact</a>
     </div>
     <!-- Right Side Buttons -->
     <div class="hidden lg:flex items-center space-x-3">
         @if (Route::has('login'))
             @auth
                 <a href="{{ url('/dashboard') }}"
-                   class="bg-black text-white font-semibold px-5 py-2 rounded-xl shadow hover:bg-gray-900 transition">
+                    class="bg-black text-white font-semibold px-5 py-2 rounded-xl shadow hover:bg-gray-900 transition">
                     Dashboard
                 </a>
             @else
                 <a href="{{ route('login') }}"
-                   class="flex items-center bg-black text-white font-semibold px-5 py-2 rounded-xl shadow hover:bg-gray-900 transition">
-                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3A2.25 2.25 0 008.25 5.25V9m7.5 0v10.5A2.25 2.25 0 0113.5 21h-3a2.25 2.25 0 01-2.25-2.25V9m7.5 0H6.75" />
-                    </svg>
+                    class="flex items-center bg-black text-white font-semibold px-5 py-2 rounded-xl shadow hover:bg-gray-900 transition">
                     LOGIN
                 </a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="flex items-center bg-black text-white font-semibold px-5 py-2 rounded-xl shadow hover:bg-gray-900 transition">
+                        Create Account
+                    </a>
+                @endif
             @endauth
         @endif
     </div>
@@ -38,8 +49,7 @@
     <div class="lg:hidden flex ml-auto">
         <button class="navbar-burger flex items-center text-black p-2 focus:outline-none" aria-label="Open menu">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
     </div>
@@ -53,9 +63,9 @@
                 <img class="w-full h-10" src="{{ url('assets/image/placement.png') }}" alt="Placement Cell Logo">
             </a>
             <button class="navbar-close ml-4">
-                <svg class="h-8 w-8 text-gray-400 cursor-pointer hover:text-gray-600"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                <svg class="h-8 w-8 text-gray-400 cursor-pointer hover:text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
@@ -97,8 +107,10 @@
                 @else
                     <a class="block px-4 py-3 mb-3 text-base text-center font-semibold bg-black text-white rounded-lg hover:bg-gray-900 transition"
                         href="{{ route('login') }}">
-                        <svg class="h-5 w-5 inline-block mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3A2.25 2.25 0 008.25 5.25V9m7.5 0v10.5A2.25 2.25 0 0113.5 21h-3a2.25 2.25 0 01-2.25-2.25V9m7.5 0H6.75" />
+                        <svg class="h-5 w-5 inline-block mr-2" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3A2.25 2.25 0 008.25 5.25V9m7.5 0v10.5A2.25 2.25 0 0113.5 21h-3a2.25 2.25 0 01-2.25-2.25V9m7.5 0H6.75" />
                         </svg>
                         LOGIN
                     </a>
