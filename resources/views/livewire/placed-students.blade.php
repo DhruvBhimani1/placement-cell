@@ -9,7 +9,7 @@ new class extends Component {
     use WithPagination;
 
     public $year = '';
-    public $branch = '';
+    public $branch = 'Computer Engineering';
 
     public function getYearsProperty(): Collection
     {
@@ -79,8 +79,7 @@ new class extends Component {
     <div class="max-w-6xl mx-auto px-4 mt-12">
         <!-- Year Tabs -->
         <div class="flex gap-4 mb-8 justify-center flex-wrap">
-            <button wire:click="setYear('')" class="px-8 py-2 rounded-lg font-semibold shadow focus:outline-none transition {{ $year == '' ? 'bg-black text-white' : 'bg-white text-black border border-gray-300 hover:bg-gray-100' }}">All Years</button>
-            @foreach($this->years as $y)
+             @foreach($this->years as $y)
                 <button wire:click="setYear('{{ $y }}')" class="px-8 py-2 rounded-lg font-semibold shadow focus:outline-none transition {{ $year == $y ? 'bg-black text-white' : 'bg-white text-black border border-gray-300 hover:bg-gray-100' }}">{{ $y }}</button>
             @endforeach
         </div>
@@ -88,7 +87,7 @@ new class extends Component {
 
         <!-- Branch Tabs -->
         <div class="flex flex-wrap gap-3 mb-8 justify-center">
-            <button wire:click="setBranch('')" class="px-5 py-2 rounded-xl font-medium shadow focus:outline-none transition {{ $branch == '' ? 'bg-black text-white' : 'bg-white text-black border border-gray-300 hover:bg-gray-100' }}">All Branches</button>
+            
             @foreach($this->branches as $b)
                 <button wire:click="setBranch('{{ $b }}')" class="px-5 py-2 rounded-xl font-medium shadow focus:outline-none transition {{ $branch == $b ? 'bg-black text-white' : 'bg-white text-black border border-gray-300 hover:bg-gray-100' }}">{{ $b }}</button>
             @endforeach
