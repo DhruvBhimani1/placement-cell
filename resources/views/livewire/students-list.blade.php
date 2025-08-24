@@ -19,11 +19,6 @@ new class extends Component {
     public $showModal = false;
     public $deleteId = null;
 
-    public function getYearsProperty(): Collection
-    {
-        return Placement::query()->select('year')->distinct()->orderBy('year', 'desc')->pluck('year');
-    }
-
     public function confirmDelete($id)
     {
         $this->deleteId = $id;
@@ -40,7 +35,7 @@ new class extends Component {
         $this->deleteId = null;
     }
 
-    public function render(): View
+    public function with(): array
     {
         $students = Placement::query()
             ->when($this->search, function ($query) {
@@ -51,15 +46,18 @@ new class extends Component {
             ->when($this->year, function ($query) {
                 $query->where('year', $this->year);
             })
-            ->when($this->package, function ($query) {
+            ->when(filled($this->package), function ($query) {
                 $query->where('package', '>=', $this->package);
             })
             ->orderByDesc('id')
             ->paginate(20);
 
-        return view('livewire.students-list', [
+        $years = Placement::query()->select('year')->distinct()->orderBy('year', 'desc')->pluck('year');
+
+        return [
             'students' => $students,
-        ]);
+            'years' => $years,
+        ];
     }
 };
 ?>
@@ -93,7 +91,7 @@ new class extends Component {
                     <select id="year" wire:model.live="year"
                         class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option value="">Filter by Year</option>
-                        @foreach ($this->years as $y)
+                        @foreach ($years as $y)
                             <option value="{{ $y }}">{{ $y }}</option>
                         @endforeach
                     </select>

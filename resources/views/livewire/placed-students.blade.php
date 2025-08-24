@@ -87,7 +87,6 @@ new class extends Component {
 
         <!-- Branch Tabs -->
         <div class="flex flex-wrap gap-3 mb-8 justify-center">
-            
             @foreach($this->branches as $b)
                 <button wire:click="setBranch('{{ $b }}')" class="px-5 py-2 rounded-xl font-medium shadow focus:outline-none transition {{ $branch == $b ? 'bg-black text-white' : 'bg-white text-black border border-gray-300 hover:bg-gray-100' }}">{{ $b }}</button>
             @endforeach
