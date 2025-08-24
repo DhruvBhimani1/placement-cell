@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::view('about', 'about')->name('about');
 Route::view('placements/summary', 'summary')->name('placements.summary');
-Route::view('placements/students', view: 'students')->name('placements.students');
+Route::view('placements/students', 'students')->name('placements.students');
 Route::view('companies', 'companies')->name('companies');
 Route::view('resources', 'resources')->name('resources');
 Route::view('contact', 'contact')->name('contact');
@@ -24,9 +24,10 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
-    
+
     Volt::route('students', 'students-list')->name('students.list');
-   Volt::route('students/add', 'importstudents')->name('students.add');
+    Volt::route('students/add', 'import-students')->name('students.add');
+    Volt::route('students/edit/{id}', 'student-edit')->name('students.edit');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
