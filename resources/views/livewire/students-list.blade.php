@@ -4,7 +4,8 @@ use App\Models\Placement;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Attributes\Url;
-use Livewire\Component;
+
+use Livewire\Volt\Component;
 use Livewire\WithPagination;
 
 new class extends Component {

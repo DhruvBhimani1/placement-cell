@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 new class extends Component {
     use WithPagination;
 
-    public $year = '';
+    public $year = '2024';
     public $branch = 'Computer Engineering';
 
     public function getYearsProperty(): Collection
@@ -119,9 +119,13 @@ new class extends Component {
         </div>
     </div>
 
+     @php
+                @dump($students)
+            @endphp
     <!-- Placed Students Cards -->
     <div class="max-w-6xl mx-auto px-2">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+           
             @forelse($students as $student)
                 <div class="bg-white border rounded-2xl p-8 flex flex-col items-center shadow transition-transform duration-200 hover:scale-105 hover:shadow-2xl hover:border-[#213555]">
                     <div class="mb-5">
