@@ -9,11 +9,8 @@
         <div class="relative z-20 max-w-3xl md:max-w-5xl mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">Welcome to the Placement
                 Cell</h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-10 text-white">Empowering students with career opportunities,
-                industry connections, and professional growth.</p>
-            <a href="#" class="inline-block bg-white text-[#213555] font-semibold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition duration-300 ease-in-out shadow-lg">
-                Explore Opportunities
-            </a>
+            <p class="text-lg sm:text-xl md:text-2xl mb-10 text-white">Providing transparent access to placement data, connecting students with opportunities, and showcasing the achievements of our alumni.</p>
+           
         </div>
     </section>
     <livewire:top-achievers />

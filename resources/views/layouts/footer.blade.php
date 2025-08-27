@@ -1,159 +1,60 @@
-
-<footer class="bg-black">
-    <a href="javascript:" id="return-to-top" class="hide"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-    <div class="max-w-screen-xl px-4 pt-16 pb-6 mx-auto sm:px-6 lg:px-8 lg:pt-24">
-        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div>
+<footer class="bg-gray-900 text-white">
+    <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
+            <div class="lg:col-span-1">
                 <div class="flex justify-center text-white sm:justify-start">
                     <a class="w-20 leading-none" href="{{ route('home') }}">
-                        <img class="w-full" src="{{ url('assets/image/placement.png') }}" alt="Placement Cell Logo">
+                        <img class="w-auto h-12" src="{{ url('assets/image/placement.png') }}" alt="Placement Cell Logo">
                     </a>
                 </div>
-                <p class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400 sm:max-w-xs sm:mx-0 sm:text-left">
-                   Connecting dreams with opportunities. Building careers that matter.
+                <p class="max-w-xs mt-4 text-sm text-gray-400">
+                    Connecting students with top companies and providing resources for career success.
                 </p>
-                <ul class="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
-                    <li>
-                        <a href="https://www.linkedin.com" rel="noopener noreferrer" target="_blank"
-                            class="text-white transition hover:text-gray-400">
-                            <span class="sr-only">LinkedIn</span>
-                            <i class="fab fa-linkedin fa-lg"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:placement@yourcollege.edu" class="text-white transition hover:text-gray-400">
-                            <span class="sr-only">Email</span>
-                            <i class="fas fa-envelope fa-lg"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tel:+911234567890" class="text-white transition hover:text-gray-400">
-                            <span class="sr-only">Phone</span>
-                            <i class="fas fa-phone fa-lg"></i>
-                        </a>
-                    </li>
-                </ul>
+                <div class="flex mt-6 space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 md:grid-cols-4">
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium text-white">About Placement Cell</p>
-                    <nav class="mt-8">
-                        <ul class="space-y-4 text-sm">
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Our Mission
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Placement Team
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Success Stories
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Contact Us
-                                </a>
-                            </li>
-                        </ul>
+            <div class="grid grid-cols-2 gap-8 lg:col-span-3 sm:grid-cols-3">
+                <div>
+                    <p class="font-medium text-white">Quick Links</p>
+                    <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-400">
+                        <a class="hover:text-white" href="{{ route('home') }}">Home</a>
+                        <a class="hover:text-white" href="{{ route('about') }}">About Us</a>
+                        <a class="hover:text-white" href="{{ route('companies') }}">Companies</a>
+                        <a class="hover:text-white" href="{{ route('contact') }}">Contact</a>
                     </nav>
                 </div>
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium text-white">Student Resources</p>
-                    <nav class="mt-8">
-                        <ul class="space-y-4 text-sm">
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Resume Building
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Interview Tips
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Workshops & Events
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    FAQs
-                                </a>
-                            </li>
-                        </ul>
+                <div>
+                    <p class="font-medium text-white">For Students</p>
+                    <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-400">
+                        <a class="hover:text-white" href="#">Placement Process</a>
+                        <a class="hover:text-white" href="#">Resume Builder</a>
+                        <a class="hover:text-white" href="#">Interview Tips</a>
+                        <a class="hover:text-white" href="#">FAQs</a>
                     </nav>
                 </div>
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium text-white">Recruiters</p>
-                    <nav class="mt-8">
-                        <ul class="space-y-4 text-sm">
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Why Recruit With Us?
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Recruiter Registration
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Past Recruiters
-                                </a>
-                            </li>
-                            <li>
-                                <a class="text-gray-300 transition hover:text-white" href="/">
-                                    Placement Statistics
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="text-center sm:text-left">
-                    <p class="text-lg font-medium text-white">Contact</p>
-                    <ul class="mt-8 space-y-4 text-sm">
-                        <li>
-                            <a class="flex items-center justify-center sm:justify-start gap-1.5 group"
-                                href="mailto:placement@yourcollege.edu">
-                                <i class="fas fa-envelope text-white"></i>
-                                <span class="text-gray-300 transition group-hover:text-white">
-                                    placement@yourcollege.edu
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center justify-center sm:justify-start gap-1.5 group"
-                                href="tel:+911234567890">
-                                <i class="fas fa-phone text-white"></i>
-                                <span class="text-gray-300 transition group-hover:text-white">
-                                    +91 12345 67890
-                                </span>
-                            </a>
-                        </li>
-                        <li class="flex items-start justify-center gap-1.5 sm:justify-start">
-                            <i class="fas fa-map-marker-alt text-white"></i>
-                            <address class="-mt-0.5 not-italic text-gray-300">
-                                Placement Cell, Your College Name, City, Country
-                            </address>
-                        </li>
-                    </ul>
+                <div>
+                    <p class="font-medium text-white">Contact Us</p>
+                    <div class="flex flex-col mt-4 space-y-2 text-sm text-gray-400">
+                        <a href="mailto:gec-bhav-dte@gujarat.gov.in" class="flex items-center hover:text-white">
+                            <i class="fas fa-envelope mr-2"></i> gec-bhav-dte@gujarat.gov.in
+                        </a>
+                        <a href="tel:+912782525354" class="flex items-center hover:text-white">
+                            <i class="fas fa-phone mr-2"></i> +91 278 252 5354
+                        </a>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <p>Government Engineering College, Bhavnagar</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="pt-6 mt-12 border-t border-gray-800">
-            <div class="text-center sm:flex sm:justify-between sm:text-left">
-    
-                <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-                    &copy; 2025 Placement Cell, GEC-Bhavnagar
-                </p>
-            </div>
+        <div class="pt-8 mt-8 border-t border-gray-800">
+            <p class="text-sm text-center text-gray-400">&copy; {{ date('Y') }} Placement Cell, GEC-Bhavnagar. All rights reserved.</p>
         </div>
     </div>
 </footer>

@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="bg-[#213555] text-white py-16">
+    <section class="bg-gradient-to-r from-[#213555] to-[#4F6F52] text-white py-20">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Recruiting Companies</h1>
             <p class="text-lg text-blue-100">Our top recruiters who have hired our talented students</p>

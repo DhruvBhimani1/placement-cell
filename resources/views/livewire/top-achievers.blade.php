@@ -2,11 +2,6 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <!-- Section Header -->
         <div class="mb-12">
-            <div class="flex justify-center">
-                <svg class="h-12 w-12 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9a9.75 9.75 0 000 1.5h9a9.75 9.75 0 000-1.5zM12 6.75V3.75m0 3V6.75m0 0H9.375m2.625 0H14.625M12 6.75v8.25c0 1.242.413 2.393 1.125 3.375m-2.25-3.375c.712-.982 1.125-2.133 1.125-3.375V6.75m-1.125 0H9.375m2.625 0H12m0 0v.001M12 3.75h.008v.008H12V3.75zm-3.75 0h.008v.008H8.25V3.75zm7.5 0h.008v.008h-.008V3.75z" />
-                </svg>
-            </div>
             <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mt-4">Top Achievers</h2>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
                 Celebrating our students who have secured remarkable packages with leading companies.
@@ -63,7 +58,9 @@
                         </div>
                     </div>
                     <h3 class="font-bold text-xl text-gray-800 mb-1">{{ $placement->student_name }}</h3>
+                    <p class="text-gray-500 text-base mb-2">{{ $placement->branch }}</p>
                     <p class="text-gray-500 text-base mb-4">{{ $placement->company }}</p>
+                    
                     <span class="inline-block bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-bold">₹{{ $placement->package }} LPA</span>
                 </div>
             @empty
