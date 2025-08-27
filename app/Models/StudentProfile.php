@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Placement extends Model
+class StudentProfile extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-        'student_name',
-        'company',
-        'package',
-        'branch',
-        'year',
         'user_id',
+        'resume_path',
+        'skills',
+        'bio',
     ];
 
     public function user(): BelongsTo

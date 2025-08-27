@@ -36,6 +36,9 @@
         @if (auth()->user()->isStudent())
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Your Journey')" class="grid">
+                    <flux:navlist.item icon="user-circle" :href="route('profile.edit')"
+                        :current="request()->routeIs('profile.edit')" wire:navigate>{{ __('My Profile') }}
+                    </flux:navlist.item>
                     <flux:navlist.item icon="briefcase" :href="route('placements.students')"
                         :current="request()->routeIs('placements.students')"
                         wire:navigate>{{ __('Placements') }}
