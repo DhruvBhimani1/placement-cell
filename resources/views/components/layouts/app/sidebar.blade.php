@@ -19,20 +19,36 @@
                     wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
-        <flux:navlist variant="outline">
-            <flux:navlist.group :heading="__('')" class="grid">
-                <flux:navlist.item icon="users" :href="route('students.list')"
-                    :current="request()->routeIs('students.list')" wire:navigate>{{ __('Students') }}
-                </flux:navlist.item>
-            </flux:navlist.group>
-        </flux:navlist>
-        <flux:navlist variant="outline">
-            <flux:navlist.group :heading="__('')" class="grid">
-                <flux:navlist.item icon="user-plus" :href="route('students.add')"
-                    :current="request()->routeIs('students.add')" wire:navigate>{{ __('Add Students') }}
-                </flux:navlist.item>
-            </flux:navlist.group>
-        </flux:navlist>
+
+        @if (auth()->user()->isAdmin())
+            <flux:navlist variant="outline">
+                <flux:navlist.group :heading="__('Management')" class="grid">
+                    <flux:navlist.item icon="users" :href="route('students.list')"
+                        :current="request()->routeIs('students.list')" wire:navigate>{{ __('Students') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="user-plus" :href="route('students.add')"
+                        :current="request()->routeIs('students.add')" wire:navigate>{{ __('Add Students') }}
+                    </flux:navlist.item>
+                </flux:navlist.group>
+            </flux:navlist>
+        @endif
+
+        @if (auth()->user()->isStudent())
+            <flux:navlist variant="outline">
+                <flux:navlist.group :heading="__('Your Journey')" class="grid">
+                    <flux:navlist.item icon="briefcase" :href="route('placements.students')"
+                        :current="request()->routeIs('placements.students')"
+                        wire:navigate>{{ __('Placements') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="building-office-2" :href="route('companies')"
+                        :current="request()->routeIs('companies')" wire:navigate>{{ __('Companies') }}
+                    </flux:navlist.item>
+                    <flux:navlist.item icon="book-open" :href="route('resources')"
+                        :current="request()->routeIs('resources')" wire:navigate>{{ __('Resources') }}
+                    </flux:navlist.item>
+                </flux:navlist.group>
+            </flux:navlist>
+        @endif
 
         <flux:spacer />
 
