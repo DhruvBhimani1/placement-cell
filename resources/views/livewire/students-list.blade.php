@@ -160,8 +160,12 @@ new class extends Component {
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $student->branch }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $student->year }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                @if ($student->user_id)
+                                    <a href="{{ route('students.profile', $student->user_id) }}"
+                                        class="text-green-600 hover:text-green-900">View Profile</a>
+                                @endif
                                 <a href="{{ route('students.edit', $student->id) }}"
-                                    class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    class="ml-4 text-indigo-600 hover:text-indigo-900">Edit</a>
                                 <button wire:click="confirmDelete({{ $student->id }})"
                                     class="ml-4 text-red-600 hover:text-red-900">Delete</button>
                             </td>

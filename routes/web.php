@@ -29,6 +29,15 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('students', 'students-list')->name('students.list');
     Volt::route('students/add', 'import-students')->name('students.add');
     Volt::route('students/edit/{id}', 'student-edit')->name('students.edit');
+
+    // Student Profile
+    Route::get('/profile', \App\Livewire\StudentProfileEditor::class)->name('profile.edit');
+    Route::get('/students/{user}/profile', \App\Livewire\StudentProfileEditor::class)->name('students.profile')->middleware(function ($request, $next) {
+        if (!auth()->user()->isAdmin()) {
+            abort(403);
+        }
+        return $next($request);
+    });
 });
 
 require __DIR__ . '/auth.php';
