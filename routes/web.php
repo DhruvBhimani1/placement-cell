@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -14,7 +15,7 @@ Route::view('companies', 'companies')->name('companies');
 Route::view('resources', 'resources')->name('resources');
 Route::view('contact', 'contact')->name('contact');
 
-Route::view('dashboard', 'dashboard')
+Route::get('dashboard', DashboardController::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
