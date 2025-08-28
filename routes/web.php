@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('students', 'students-list')->name('students.list');
     Volt::route('students/add', 'import-students')->name('students.add');
     Volt::route('students/edit/{id}', 'student-edit')->name('students.edit');
-
+    // Student Profile
     Volt::route('/profile', 'profile-editor')->name('profile.edit');
     Volt::route('/students/{user}/profile', 'profile-editor')->name('students.profile')->middleware(function ($request, $next) {
         if (!auth()->user()->isAdmin()) {
