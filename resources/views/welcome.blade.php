@@ -99,7 +99,7 @@
             </div>
         </div>
             <div class="mt-12"> {{-- Added a button to view all recruiters --}}
-                <a href="#"
+                <a href="{{ route('companies') }}"
                     class="inline-block bg-[#213555] text-white font-semibold py-3 px-8 rounded-full text-lg hover:bg-[#1a2b47] transition duration-300 ease-in-out shadow-lg">
                     View All Recruiters
                 </a>

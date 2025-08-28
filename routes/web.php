@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('students/edit/{id}', 'student-edit')->name('students.edit');
 
     // Student Profile
-    Volt::route('/profile','student-profile-editor')->name('profile.edit');
+    Volt::route('profile','student-profile-editor')->name('profile.edit');
     // Route::get('/students/{user}/profile', \App\Livewire\StudentProfileEditor::class)->name('students.profile')->middleware(function ($request, $next) {
     //     if (! $request->user()->isAdmin()) {
     //         abort(403);
