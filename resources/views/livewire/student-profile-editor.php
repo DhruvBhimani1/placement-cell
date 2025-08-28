@@ -1,10 +1,11 @@
 <?php
 
+
+use Livewire\Volt\Component;
 use App\Models\StudentProfile;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 
 new class extends Component
