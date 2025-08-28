@@ -51,6 +51,13 @@ new class extends Component {
             ];
         });
 
+        // Prepare data for the chart
+        $chartData = $branchWiseSummary->map(fn ($branch) => $branch['placed_students'])->values();
+        $chartLabels = $branchWiseSummary->map(fn ($branch) => $branch['name'])->values();
+
+        // Dispatch event to update chart for subsequent updates
+        $this->dispatch('updateChart', data: $chartData, labels: $chartLabels);
+
         return [
             'totalSanctionedIntake' => $totalSanctionedIntake,
             'placedStudentsCount' => $placedStudentsCount,
@@ -59,6 +66,8 @@ new class extends Component {
             'averagePackage' => $averagePackage,
             'companiesVisited' => $companiesVisited,
             'branchWiseSummary' => $branchWiseSummary,
+            'chartData' => $chartData,
+            'chartLabels' => $chartLabels,
         ];
     }
 }; ?>
@@ -144,6 +153,14 @@ new class extends Component {
                         </div>
                     </div>
 
+                    <!-- Branch Wise Chart -->
+                    <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm mb-8">
+                        <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Branch-wise Placements ({{ $year }})</h2>
+                        <div wire:ignore>
+                            <canvas id="branchWiseChart"></canvas>
+                        </div>
+                    </div>
+
                     <!-- Branch Wise Summary Table -->
                     <h2 class="text-2xl font-bold text-gray-800 dark:text-white mt-12 mb-4">Branch Wise Summary <span class="font-normal text-base text-gray-500 dark:text-gray-400">({{ $year }})</span></h2>
                     <div class="overflow-x-auto bg-white dark:bg-gray-800 rounded-lg shadow">
@@ -192,3 +209,64 @@ new class extends Component {
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('livewire:init', () => {
+        let chart;
+
+        const initChart = (data, labels) => {
+            if (chart) {
+                chart.destroy();
+            }
+
+            const ctx = document.getElementById('branchWiseChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Placed Students',
+                        data: data,
+                        backgroundColor: 'rgba(79, 70, 229, 0.8)',
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#6b7280'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#6b7280'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#6b7280'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initial chart data from the backend
+        const initialData = @json($chartData);
+        const initialLabels = @json($chartLabels);
+        initChart(initialData, initialLabels);
+
+        Livewire.on('updateChart', ({ data, labels }) => {
+            initChart(data, labels);
+        });
+    });
+</script>
+@endpush

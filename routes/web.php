@@ -31,13 +31,14 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('students/edit/{id}', 'student-edit')->name('students.edit');
 
     // Student Profile
-    Route::get('/profile', \App\Livewire\StudentProfileEditor::class)->name('profile.edit');
-    Route::get('/students/{user}/profile', \App\Livewire\StudentProfileEditor::class)->name('students.profile')->middleware(function ($request, $next) {
-        if (!auth()->user()->isAdmin()) {
-            abort(403);
-        }
-        return $next($request);
-    });
+    Volt::route('/profile','student-profile-editor')->name('profile.edit');
+    // Route::get('/students/{user}/profile', \App\Livewire\StudentProfileEditor::class)->name('students.profile')->middleware(function ($request, $next) {
+    //     if (! $request->user()->isAdmin()) {
+    //         abort(403);
+    //     }
+        
+    //     return $next($request);
+    // });
 });
 
 require __DIR__ . '/auth.php';
