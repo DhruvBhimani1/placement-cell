@@ -1,6 +1,5 @@
 <?php
 
-use App\Livewire\StudentProfileEditor;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +21,7 @@ test('a student can view their own profile editor', function () {
     actingAs($this->student1)
         ->get(route('profile.edit'))
         ->assertOk()
-        ->assertSeeLivewire(StudentProfileEditor::class);
+        ->assertSeeLivewire('profile-editor');
 });
 
 test('a student can update their profile', function () {
@@ -32,7 +31,7 @@ test('a student can update their profile', function () {
 
     actingAs($this->student1);
 
-    Livewire::test(StudentProfileEditor::class)
+    Livewire::test('profile-editor')
         ->set('bio', 'This is my new bio.')
         ->set('skills', 'PHP, Laravel, Testing')
         ->set('resume', $file)
@@ -69,7 +68,7 @@ test('a student cannot update another student profile', function () {
 
     // This test attempts to update student2's profile while authenticated as student1.
     // The component should prevent this via the abort(403) call.
-    Livewire::test(StudentProfileEditor::class, ['user' => $this->student2])
+    Livewire::test('profile-editor', ['user' => $this->student2])
         ->set('bio', 'malicious bio')
         ->call('save')
         ->assertForbidden();
