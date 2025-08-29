@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('resume_path')->nullable();
             $table->text('skills')->nullable();
             $table->text('bio')->nullable();
+            $table->string('profile_picture')->nullable()->after('skills');
+            $table->string('linkedin_url')->nullable()->after('profile_picture');
+            $table->string('github_url')->nullable()->after('linkedin_url');
             $table->timestamps();
         });
     }

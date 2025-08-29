@@ -25,7 +25,6 @@
     @include('layouts.footer')
     <script src="{{ url('assets/js/script.js') }}"></script>
     @stack('scripts')
-    @stack('scripts')
 </body>
 
 </html>
